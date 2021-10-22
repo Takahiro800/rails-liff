@@ -1,80 +1,24 @@
 # README
 
-Development template for Rails6.1 and PG.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-```
-NODE_VERSION: '14-alpine'
-RUBY_VERSION: '2.7-alpine'
-YARN_VERSION: '1.22.5'
-RAILS_VERSION: '6.1'
-```
+Things you may want to cover:
 
-## Usage
+* Ruby version
 
-### 1. Build Image
+* System dependencies
 
-```bash
-$ mkdir YOUR_REPOSITORY_NAME
-$ cd YOUR_REPOSITORY_NAME
-$ git clone git@github.com:harayama-developmer/template-docker-rails-6-postgresql.git .
-$ rm -rf .git/
-$ make init
-```
+* Configuration
 
-Please change to `.env` your preference.
+* Database creation
 
-### 2. Rails New
+* Database initialization
 
-This command is uses `-m ./rails_template.rb` option.
+* How to run the test suite
 
-```bash
-$ docker-compose run --rm backend rails new . -m ./rails_template.rb -d postgresql -T
-```
+* Services (job queues, cache servers, search engines, etc.)
 
-[Template details](rails_template.rb)
+* Deployment instructions
 
-Please change to `rails new options` your preference.
-
-#### Other Examples
-
-```bash
-$ docker-compose run --rm backend rails new . -d postgresql -T --skip-action-mailbox --webpack=stimulus
-```
-
-After rails new command, you must create database.
-
-```bash
-$ docker-compose run --rm backend rails db:create
-```
-
-options:
-
-- --database=postgresql
-- --skip-active-storage
-- --skip-action-mailer
-- --skip-active-job
-- --skip-action-cable
-- --skip-action-mailbox
-- --skip-action-text
-- --skip-turbolinks
-- --skip-sprockets
-- --skip-spring
-- --skip-bootsnap
-
-### 3. Start containers
-
-```bash
-$ make
-# or
-# $ docker-compose up
-```
-
-Access `http://localhost:3000` on your browser.
-
-![rails_hello_world](https://user-images.githubusercontent.com/44060633/102802678-60cf1080-43fa-11eb-8918-bf2bacf0fbe9.png)
-
-**End containers**
-
-```bash
-$ make down
-```
+* ...
