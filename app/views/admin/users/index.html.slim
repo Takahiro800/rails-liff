@@ -1,2 +1,9 @@
 h1 Admin::Users#index
-p Find me in app/views/admin/users/index.html.slim
+- if @users.present?
+  - @users.each do |user|
+    p
+      = user[:id]
+    p
+      = user[:name]
+    p
+      = user[:tag]
