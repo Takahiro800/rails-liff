@@ -1,2 +1,10 @@
-h1 Users#new
-p Find me in app/views/users/new.html.slim
+.user__new
+  = form_with model: @user, local: true do |f|
+    .form-group.form.pt-5
+      = f.label :name
+      = f.text_field :name, class: 'form-control', id: 'user_name', :placeholder => "タイトルを入力してください"
+    .form-group.form.pt-5
+      = f.label :tag
+      = f.text_field :tag, class: 'form-control', id: 'user_tag', :placeholder => "タイトルを入力してください"
+    .d-flex.flex-row.justify-content-center
+      = f.submit "保存する", class: 'btn btn-primary mt-5'
