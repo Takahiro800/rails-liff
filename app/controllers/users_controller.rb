@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     end
 
     if @user.save
+      TagMailer.creation_email(@user.tag).deliver_now
       redirect_to admin_users_index_url
     else
       @user = User.new(user_params)
