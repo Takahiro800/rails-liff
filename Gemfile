@@ -68,3 +68,5 @@ gem "rails-i18n"
 gem "slim-rails"
 
 gem "devise"
+gem "dotenv-rails"
+gem "gon"
