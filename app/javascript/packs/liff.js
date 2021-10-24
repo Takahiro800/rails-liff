@@ -11,7 +11,6 @@ window.onload = function () {
       if (!liff.isLoggedIn()) {
         liff.login();
       }
-      console.log('liff');
     })
     .catch((err) => {
       console.log(err.code, err.message);
