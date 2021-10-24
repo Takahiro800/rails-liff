@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       user = User.create(line_user_id: line_user_id)
       session[:user_id] = user.id
       render :json => user
-    elseif user
+    elsif user
       session[:user_id] = user.id
       render :json => user
     end
