@@ -19,7 +19,7 @@ window.onload = function () {
 
   getProfileButton.addEventListener('click', () => {
     let idToken = liff.getIDToken();
-    let body = `idToken${idToken}`;
+    let body = `idToken=${idToken}`;
     let request = new Request('/users', {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
