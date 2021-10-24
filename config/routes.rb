@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 		passwords: 'admin_users/passwords',
 	}
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
-  root 'admin/users#index'
+  root 'users#new'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
