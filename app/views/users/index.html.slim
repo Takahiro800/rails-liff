@@ -1,0 +1,9 @@
+h1 Users#index
+- if @users.present?
+  - @users.each do |user|
+    p
+      = link_to user.id, edit_user_path(user)
+    p
+      = user[:line_user_id]
+.btn#loginBtn
+  | ログインする

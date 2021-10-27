@@ -15,4 +15,4 @@ ActiveStorage.start();
 import '../stylesheets/application';
 
 // 追加分
-import './liff';
+// import './login';

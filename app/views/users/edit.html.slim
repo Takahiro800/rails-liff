@@ -1,2 +1,9 @@
 h1 Users#edit
 p Find me in app/views/users/edit.html.slim
+.user__edit
+  = form_with model: @user,  local: true do |f|
+    .form-group.form.pt-5
+      = f.label :tag
+      = f.text_field :tag, class: 'form-control', id: 'user_tag', :placeholder => "タイトルを入力してください"
+    .d-flex.flex-row.justify-content-center
+      = f.submit "保存する", class: 'btn btn-primary mt-5'

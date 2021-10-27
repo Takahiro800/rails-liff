@@ -62,6 +62,7 @@ module App
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.hosts << "60ef-111-65-212-48.ngrok.io"
+    config.hosts << "ed5e-111-65-212-48.ngrok.io"
+    config.hosts << "7829-111-65-212-48.ngrok.io"
   end
 end
