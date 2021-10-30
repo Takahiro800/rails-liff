@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags, only: %i[index new create show edit update destroy]
   resources :users, only: %i[index new create show edit update destroy]
   namespace :admin do
     get 'users/index'

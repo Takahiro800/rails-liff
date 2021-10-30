@@ -64,5 +64,6 @@ module App
 
     config.hosts << "ed5e-111-65-212-48.ngrok.io"
     config.hosts << "7829-111-65-212-48.ngrok.io"
+    config.hosts << "25ee-111-65-212-48.ngrok.io"
   end
 end

@@ -42,19 +42,27 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @tags = @user.tags
   end
 
   def edit
     @user = User.find(params[:id])
+    @tags = @user.tags
   end
 
   def update
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to users_url, notice: "user#{user.id}」を削除しました"
 
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :tag)
+    params.require(:user).permit(:name)
   end
 end

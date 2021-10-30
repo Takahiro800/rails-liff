@@ -5,5 +5,6 @@ h1 Users#index
       = link_to user.id, edit_user_path(user)
     p
       = user[:line_user_id]
+    td.data__button = link_to '削除する', user_path(user), method: :delete, data: {confirm: "イベント「#{user.id}」を削除しますか？"}, class: 'btn btn-danger'
 .btn#loginBtn
   | ログインする

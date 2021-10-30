@@ -7,3 +7,18 @@
 | lineID
 .
 = @user.line_user_id
+
+.
+- @tags.each do |tag|
+  .
+    = tag.name
+  .data__button
+    = link_to '削除する', tag_path(tag), method: :delete, data: {confirm: "タグ「#{tag.name}」を削除しますか？"}, class: 'btn btn-danger'
+
+.
+= form_with model: Tag.new,   local: true do |f|
+  .form-group.form.pt-5
+    = f.label :name
+    = f.text_field :name, class: 'form-control', id: 'user_tag', :placeholder => "登録するタグ名を入力してください"
+  .d-flex.flex-row.justify-content-center
+    = f.submit "保存する", class: 'btn btn-primary mt-5'
