@@ -8,12 +8,18 @@
 .
 = @user.line_user_id
 
+h2 登録済みタグ
 .
 - @tags.each do |tag|
   .
     = tag.name
   .data__button
     = link_to '削除する', tag_path(tag), method: :delete, data: {confirm: "タグ「#{tag.name}」を削除しますか？"}, class: 'btn btn-danger'
+
+h2 記事一覧
+- @articles.each do |article|
+  .
+    = link_to  article["title"],article["url"]
 
 .
 = form_with model: Tag.new,   local: true do |f|

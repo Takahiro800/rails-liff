@@ -43,6 +43,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tags = @user.tags
+    @articles = @tags[0].fetch_qiita()
   end
 
   def edit
