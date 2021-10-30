@@ -12,6 +12,7 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
+import '../css/tailwindcss.css';
 import '../stylesheets/application';
 
 // 追加分
