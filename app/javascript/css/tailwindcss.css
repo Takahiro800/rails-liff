@@ -1,3 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+.btn {
+  @apply font-semibold text-white py-2 px-4 rounded;
+}
+
 @import 'tailwindcss/utilities';

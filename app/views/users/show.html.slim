@@ -8,18 +8,21 @@
 .
 = @user.line_user_id
 
-h2 登録済みタグ
-.
-- @tags.each do |tag|
-  .
-    = tag.name
-  .data__button
-    = link_to '削除する', tag_path(tag), method: :delete, data: {confirm: "タグ「#{tag.name}」を削除しますか？"}, class: 'btn btn-danger'
+h2.text-4xl.text-green-700.text-center.font-semibold 登録済みタグ
 
-h2 記事一覧
-- @articles.each do |article|
-  .
-    = link_to  article["title"],article["url"]
+.inline-block.justify-center.flex.p-4
+  - @tags.each do |tag|
+    .flex.items-center.border-solid.border-2.border-green-500.p-1.rounded-full.ml-2
+      = render partial: 'layouts/icon/tag'
+      .px-1
+        = tag.name
+      = link_to tag_path(tag), method: :delete, data: {confirm: "タグ「#{tag.name}」を削除しますか？"}
+        = render partial: 'layouts/icon/delete'
+
+h2.text-4xl.text-green-700.text-center.font-semibold 記事一覧
+.flex.flex-col.justify-center.items-center
+  - @articles.each do |article|
+    = link_to article["title"], article["url"], class: 'max-w-md.mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-4 mt-4 w-full text-green-500', target: :_blank
 
 .
 = form_with model: Tag.new,   local: true do |f|
@@ -27,13 +30,4 @@ h2 記事一覧
     = f.label :name
     = f.text_field :name, class: 'form-control', id: 'user_tag', :placeholder => "登録するタグ名を入力してください"
   .d-flex.flex-row.justify-content-center
-    = f.submit "保存する", class: 'btn btn-primary mt-5'
-
-.max-w-md.mx-auto.bg-white.rounded-xl.shadow-md.overflow-hidden.md:max-w-2xl
-  .md:flex
-    .md:flex-shrink-0
-      img.h-48.w-full.object-cover.md:w-48 alt=("Man looking at item at a store") src="https://placehold.jp/500x500.png" /
-    .p-8
-      .uppercase.tracking-wide.text-sm.text-indigo-500.font-semibold Case study
-      a.block.mt-1.text-lg.leading-tight.font-medium.text-black.hover:underline href="#"  Finding customers for your new business
-      p.mt-2.text-gray-500 Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.
+    = f.submit "保存する", class: 'btn bg-green-500'
