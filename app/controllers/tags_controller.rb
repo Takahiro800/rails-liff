@@ -7,7 +7,7 @@ class TagsController < ApplicationController
     current_user = User.find(session[:user_id])
     @tag = current_user.tags.new(tag_params)
     if @tag.save
-      text = "新しくtタグ#{tag_params[:name]}を追加しました"
+      text = "新しくタグ#{tag_params[:name]}を追加しました"
 
       message = {
         type: 'text',
