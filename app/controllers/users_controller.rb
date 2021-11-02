@@ -41,9 +41,6 @@ class UsersController < ApplicationController
       render :json => user
     end
 
-    respond_to do |format|
-      format.js { render ajax_redirect_to(user) }
-    end
   end
 
   def show
