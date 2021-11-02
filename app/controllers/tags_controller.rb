@@ -7,7 +7,15 @@ class TagsController < ApplicationController
     current_user = User.find(session[:user_id])
     @tag = current_user.tags.new(tag_params)
     if @tag.save
-      current_user.push_bot(current_user.line_user_id)
+      message = {
+        type: 'text',
+        text: 'hello'
+      }
+      client = Line::Bot::Client.new { |config|
+          config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+          config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+      }
+      response = client.push_message(current_user.line_user_id, message)
       redirect_to user_url(current_user.id)
     end
   end
