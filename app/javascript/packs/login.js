@@ -10,7 +10,7 @@ window.onload = function () {
     })
     .then(() => {
       if (!liff.isLoggedIn()) {
-        // liff.login();
+        liff.login();
       }
     })
     .then(() => {
