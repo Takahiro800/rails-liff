@@ -26,8 +26,8 @@ h2.text-4xl.text-green-700.text-center.font-semibold 記事一覧
 
 .
 = form_with model: Tag.new,   local: true do |f|
-  .form-group.form.pt-5
-    = f.label :name
+  .flex.justify-center.p-4.mt-8
+    / = f.label :name
     = f.text_field :name, class: 'form-control', id: 'user_tag', :placeholder => "登録するタグ名を入力してください"
-  .d-flex.flex-row.justify-content-center
+  .flex.justify-center
     = f.submit "保存する", class: 'btn bg-green-500'

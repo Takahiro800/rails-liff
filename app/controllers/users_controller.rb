@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   require 'net/http'
   require 'uri'
 
+  include AjaxHelper
+
   def index
     @users = User.all()
   end
@@ -37,6 +39,10 @@ class UsersController < ApplicationController
     elsif user
       session[:user_id] = user.id
       render :json => user
+    end
+
+    respond_to do |format|
+      format.js { render ajax_redirect_to(user) }
     end
   end
 
