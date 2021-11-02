@@ -19,10 +19,11 @@ h2.text-4xl.text-green-700.text-center.font-semibold 登録済みタグ
       = link_to tag_path(tag), method: :delete, data: {confirm: "タグ「#{tag.name}」を削除しますか？"}
         = render partial: 'layouts/icon/delete'
 
-h2.text-4xl.text-green-700.text-center.font-semibold 記事一覧
-.flex.flex-col.justify-center.items-center
-  - @articles.each do |article|
-    = link_to article["title"], article["url"], class: 'max-w-md.mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-4 mt-4 w-full text-green-500', target: :_blank
+- if @articles.present?
+  h2.text-4xl.text-green-700.text-center.font-semibold 記事一覧
+  .flex.flex-col.justify-center.items-center
+    - @articles.each do |article|
+      = link_to article["title"], article["url"], class: 'max-w-md.mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-4 mt-4 w-full text-green-500', target: :_blank
 
 .
 = form_with model: Tag.new,   local: true do |f|
