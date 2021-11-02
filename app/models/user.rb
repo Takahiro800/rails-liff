@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :tags
+  has_many :tags, dependent: :destroy
 
   def push_bot(user_line_id)
     client ||= Line::Bot::Client.new { |config|
