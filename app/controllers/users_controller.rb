@@ -46,7 +46,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tags = @user.tags
-    @articles = @tags[0].fetch_qiita()
+    if @tags.present?
+      @articles = @tags[0].fetch_qiita()
+    end
   end
 
   def edit
