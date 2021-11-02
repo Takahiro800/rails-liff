@@ -28,8 +28,8 @@ window.onload = function () {
       fetch(request).then(() => {
         // const params = new URLSearchParams(window.location.search);
         // const schedule_token = params.get('token');
-        // const redirect_url = `/users`;
-        // window.location = redirect_url;
+        const redirect_url = `/users/new`;
+        window.location = redirect_url;
       });
     })
     .catch((err) => {
