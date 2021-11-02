@@ -5,4 +5,5 @@ class Tag < ApplicationRecord
     qiita_config = Qiita.new(page, limit, "go")
     return qiita_config.tag_articles
   end
+
 end
