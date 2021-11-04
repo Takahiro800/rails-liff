@@ -4,22 +4,31 @@ class TagsController < ApplicationController
   end
 
   def create
+    # タスク
+    session[:user_id] = 2
+
     current_user = User.find(session[:user_id])
     @tag = current_user.tags.new(tag_params)
-    if @tag.save
-      text = "新しくタグ#{tag_params[:name]}を追加しました"
 
-      message = {
-        type: 'text',
-        text: text
-      }
-      client = Line::Bot::Client.new { |config|
-          config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-          config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
-      }
-      response = client.push_message(current_user.line_user_id, message)
-      redirect_to user_url(current_user.id)
+    if AdminTag.find_by(name: tag_params)
+      if @tag.save
+        text = "新しいタグ『#{tag_params[:name]}』を追加しました"
+
+        message = {
+          type: 'text',
+          text: text
+        }
+        client = Line::Bot::Client.new { |config|
+            config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+            config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+        }
+        response = client.push_message(current_user.line_user_id, message)
+        redirect_to user_url(current_user.id)
+      end
+    else
+      redirect_to user_url(session[:user_id])
     end
+
   end
 
   def index

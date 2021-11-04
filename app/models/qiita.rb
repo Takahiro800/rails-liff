@@ -10,7 +10,7 @@ class Qiita
   end
 
   def tag_articles
-    uri = URI("https://qiita.com/api/v2/tags/3/items?page=#{@page}&per_page=#{@limit}")
+    uri = URI("https://qiita.com/api/v2/tags/#{@tag}/items?page=#{@page}&per_page=#{@limit}")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = uri.scheme === "https"
     headers = { "Authorization" => "Bearer #{ENV['QIITA_TOKEN']}", "Content-Type" => "application/json" }
