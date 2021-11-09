@@ -50,10 +50,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
-    user.destroy
-    redirect_to users_url, notice: "user#{user.id}」を削除しました"
+    # user = User.find(params[:id])
+    # user.destroy
+    # redirect_to users_url, notice: "user#{user.id}」を削除しました"
+    session.delete(:user_id)
+    redirect_to users_url
   end
+
 
   private
 

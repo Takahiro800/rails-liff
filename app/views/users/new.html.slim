@@ -1,3 +1,5 @@
 .user__new
   .flex.justify-center.p-8
-    = link_to 'マイページへ', user_path(session[:user_id]), class: 'btn bg-green-500'
+    - if session[:user_id]
+      = link_to 'マイページへ', user_path(session[:user_id]), class: 'btn bg-green-500'
+      = button_to 'ログアウト', user_path(session[:user_id]), method: :delete, class: 'btn bg-green-500'

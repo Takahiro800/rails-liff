@@ -63,5 +63,7 @@ module App
     config.generators.system_tests = nil
 
     config.hosts << "liffiita.herokuapp.com"
+    config.hosts << "05b7-111-65-212-48.ngrok.io"
+
   end
 end

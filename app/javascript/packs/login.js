@@ -2,7 +2,6 @@ const liffID = gon.LIFF_ID_key;
 
 window.onload = function () {
   const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-  const getLoginButton = document.querySelector('#getProfile');
 
   liff
     .init({
