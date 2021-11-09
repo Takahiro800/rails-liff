@@ -4,13 +4,9 @@ class TagsController < ApplicationController
   end
 
   def create
-    # タスク
-    if Rails.env.development?
-      session[:user_id] = 2
-    end
-
     current_user = User.find(session[:user_id])
     @tag = current_user.tags.new(tag_params)
+    binding.pry
     if AdminTag.find_by(name: tag_params[:name])
       if @tag.save
         text = "新しいタグ『#{tag_params[:name]}』を追加しました"
