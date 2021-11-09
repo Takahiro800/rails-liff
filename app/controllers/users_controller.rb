@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     # user.destroy
     # redirect_to users_url, notice: "user#{user.id}」を削除しました"
     session.delete(:user_id)
-    redirect_to users_url
+    redirect_to new_users_url
   end
 
 
