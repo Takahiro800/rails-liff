@@ -9,7 +9,7 @@ class Qiita
     @tag = tag
   end
 
-  def tag_articles
+  def tag_article
     uri = URI("https://qiita.com/api/v2/tags/#{@tag}/items?page=#{@page}&per_page=#{@limit}")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = uri.scheme === "https"
@@ -17,5 +17,15 @@ class Qiita
     # headers = { "Content-Type" => "application/json" }
     response = http.get(uri, headers)
     res = JSON.parse(response.body)
+  end
+
+  def search_articles
+    uri = URI("https://qiita.com/api/v2/tags/#{@tag}/items?page=#{@page}&per_page=#{@limit}")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = uri.scheme === "https"
+    headers = { "Authorization" => "Bearer #{ENV['QIITA_TOKEN']}", "Content-Type" => "application/json" }
+    response = http.get(uri, headers)
+    res = JSON.parse(response.body)
+    are = res.find{|x| x["likes_count"] > 100}
   end
 end

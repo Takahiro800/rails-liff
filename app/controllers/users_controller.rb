@@ -34,12 +34,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @tags = @user.tags
     @articles = []
-    if @tags.present?
-      @tags.each { |tag|
-        @articles = @articles | tag.fetch_qiita()
-      }
-    end
-    binding.pry
+    # if @tags.present?
+    #   @tags.each { |tag|
+    #     @articles = @articles | tag.fetch_qiita()
+    #   }
+    # end
   end
 
   def edit

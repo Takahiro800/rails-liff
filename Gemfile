@@ -63,7 +63,9 @@ group :development do
   gem "binding_of_caller"
   gem "html2slim"
   gem "letter_opener_web"
+  gem "annotate"
 end
+
 gem "rails-i18n"
 gem "slim-rails"
 

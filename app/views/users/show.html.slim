@@ -1,14 +1,14 @@
-.id
-| ID
+/ .id
+/ | ID
 
-.id
-= @user.id
-.
-| lineID
-.
-= @user.line_user_id
+/ .id
+/ = @user.id
+/ .
+/ | lineID
+/ .
+/ = @user.line_user_id
 
-h2.text-4xl.text-green-700.text-center.font-semibold 登録済みタグ
+h2.text-4xl.text-green-700.text-center.font-semibold.pt-8 登録済みタグ
 
 .inline-block.justify-center.flex.p-4
   - @tags.each do |tag|
